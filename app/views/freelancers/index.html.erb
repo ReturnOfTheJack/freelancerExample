@@ -1,0 +1,47 @@
+<h1>Freelancers</h1>
+
+<%# Basic check to ensure we have data%>
+<% if @freelancers && @freelancers.length > 0 %>
+
+<table>
+	<thread>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Specialty</th>
+			<th>Projects</th>
+		</tr>
+	</thread>
+
+	<tbody>
+	<% @freelancers.each do |freelancer| %>
+		<tr>
+			<td><%= freelancer.first_name %></td>
+			<td><%= freelancer.last_name %></td>
+			<td><%= freelancer.specialty %></td>
+			<td>
+			<ul>
+			<%# All projects within the freelancer's relationships %>
+			<%= freelancer.projects.each_with_index do |projects, index| %>
+			<li>Project: <%= projects.title %></li>
+			<li>Technologies used: <%= project.technologies %></li>
+			<% if project.year_of_completion %>
+			<li>Completed in: <%= project.year_of_completion %></li>
+			<% end %>
+
+			<%# Adding a divider to the screen %>
+			<% if index != freelancer.projects.length - 1 %>
+			<hr>
+			<% end %>
+			<% end %>
+			</ul>
+			</td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
+
+<% else %>
+	<h3>No freelancers were found.</h3>
+<% end %>
+<%= link_to('Add Freelancer', new_path) %>
