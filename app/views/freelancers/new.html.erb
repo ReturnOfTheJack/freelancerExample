@@ -22,22 +22,19 @@
 <%= f.label :specialty, required: true %>
 <%= f.text_field :specialty %>
 
-<%= f.label :specialty, required: true %>
-<%= f.text_field :specialty %>
-
-<%# Projects section%>
 <section>
-	<h4>Projects</h4>
+<h4>Projects</h4>
 
-	<%= f.fields_for :projects do |ff| %>
+<%= f.fields_for :projects do |ff| %>
 	<%= render partial: 'freelancers/project_fields', locals: { f: ff } %>
-	<% end %>
+<% end %>
 
-	<div class="links">
-	<%= link_to_add_association 'Add Project', f, :projects %>
-	</div>
-	</section>
+<div class="links">
+<%= link_to_add_association 'Add Project', f, :projects %>
+</div>
+</section>
 
 <%= f.submit %>
 <% end %>
+
 <%= link_to('Cancel', root_path) %>

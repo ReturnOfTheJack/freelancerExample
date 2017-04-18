@@ -20,27 +20,24 @@
 			<td><%= freelancer.last_name %></td>
 			<td><%= freelancer.specialty %></td>
 			<td>
-			<ul>
-			<%# All projects within the freelancer's relationships %>
-			<%= freelancer.projects.each_with_index do |projects, index| %>
-			<li>Project: <%= projects.title %></li>
-			<li>Technologies used: <%= project.technologies %></li>
-			<% if project.year_of_completion %>
-			<li>Completed in: <%= project.year_of_completion %></li>
-			<% end %>
+				<ul>
+					<% freelancer.projects.each_with_index do |project, index| %>
+					<li>Project: <%= project.title %></li>
+					<li>Technologies used: <%= project.technologies %></li>
+					<% if project.year_of_completion %>
+					<li>Completed in: <%= project.year_of_completion %></li>
+					<% end  %>
 
-			<%# Adding a divider to the screen %>
-			<% if index != freelancer.projects.length - 1 %>
-			<hr>
-			<% end %>
-			<% end %>
-			</ul>
+					<% if index != freelancer.projects.length - 1 %>
+						<hr>
+						<% end %>
+					<% end %>
+				</ul>
 			</td>
 		</tr>
 	<% end %>
 	</tbody>
 </table>
-
 <% else %>
 	<h3>No freelancers were found.</h3>
 <% end %>

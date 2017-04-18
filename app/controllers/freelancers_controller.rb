@@ -20,7 +20,7 @@ class FreelancersController < ApplicationController
 
 	private
 	def freelancer_params
-		params.require(:freelancer).permit(:first_name, :last_name, :specialty, 
-			projects_attributes: [:title, :technologies, :year_of_completion])
+		params.require(:freelancer).permit(:first_name, :last_name, :specialty,
+		projects_attributes: [:title, :technologies, :year_of_completion])
 	end
 end
